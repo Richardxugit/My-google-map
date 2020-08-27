@@ -1,0 +1,25 @@
+.wrapper {
+  display: flex;
+  position: absolute;
+  top: 60px;
+  left: 10px;
+  z-index: 10;
+}
+
+.input,
+button {
+  box-sizing: border-box;
+  border: 2px solid #f0f0f0;
+  border-radius: 5px;
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  color: black;
+  &:focus {
+    outline: none;
+    border-color:greenyellow;
+    &::placeholder {
+      color: transparent;
+    }
+  }
+}
