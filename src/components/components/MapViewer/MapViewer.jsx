@@ -1,7 +1,7 @@
 import React from "react";
 import { Map, GoogleApiWrapper, Marker, InfoWindow } from "google-maps-react";
 import styles from "./MapViewer.module.scss";
-import bikeData from "../../../data/bike_rent_melboune.json";
+import bikeData from "../../../bike_rent_melboune.json";
 
 export class MapViewer extends React.Component {
   constructor(props) {
