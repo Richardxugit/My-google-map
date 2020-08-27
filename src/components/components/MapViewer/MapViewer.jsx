@@ -8,11 +8,18 @@ export class MapViewer extends React.Component {
     super(props);
     this.state = {
       stores: bikeData,
-      selectedLoc: "",
+      showingInfoWindow: false,
+      activeMarker: {},
+      selectedLoc: {},
     };
   }
 
-  displayInfoWindow() {}
+  onMarkerClick = (props, marker, e) =>
+    this.setState({
+      selectedLoc: props,
+      activeMarker: marker,
+      showingInfoWindow: true,
+    });
 
   render() {
     return (
@@ -30,22 +37,14 @@ export class MapViewer extends React.Component {
               lat: store.lat,
               lng: store.lon,
             }}
-            onClick={() => {
-              this.setState({ selectedLoc: store });
-            }}
+            onClick={this.onMarkerClick}
+            name={store.name}
           />
         ))}
-        {console.log(this.state.selectedLoc)}
         <InfoWindow
-          position={{
-            lat: this.state.selectedLoc.lat,
-            lng: this.state.selectedLoc.lon,
-          }}
-          onCloseClick={() => {
-            this.setState({ selectedLoc: "" });
-          }}
+          marker={this.state.activeMarker}
+          visible={this.state.showingInfoWindow}
         >
-          {console.log(this.state.selectedLoc)}
           <div>{this.state.selectedLoc.name}</div>
         </InfoWindow>
       </Map>
