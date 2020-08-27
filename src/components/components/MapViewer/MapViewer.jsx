@@ -54,5 +54,5 @@ export class MapViewer extends React.Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: "AIzaSyAWNmsok4fRuSa3rCI6UO2M-fnY4MpAkz0",
+  apiKey: process.env.React_APP_GOOGLE_KEY,
 })(MapViewer);
